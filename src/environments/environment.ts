@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    serveUrl: ''
+    serveUrl: 'https://my-fin-track-phi.vercel.app/api'
   };
