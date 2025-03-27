@@ -1,0 +1,51 @@
+<main class="container" style="background-color: light;">
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0 " style="margin: auto;">
+            <h2 >Welcome to Transactions</h2>
+          <div class="card" >
+            <div class="card-body border-bottom" *ngFor="let transaction of TRANSACTIONS">
+              <h5 class="card-title">Transaction Number: - {{ transaction.userId }}</h5>
+              <p class="card-text">Category:{{ (transaction.category) }}</p>
+              <p class="card-text">Amount: ${{ transaction.amount }}</p>
+              <p class="card-text">Description:{{ transaction.description }}</p>
+
+              <button class="btn btn-success m-2 " (click)="selectTransaction(transaction)">Edit</button>
+              <button class="btn btn-success " (click)="deleteTransaction(transaction._id)">Delete</button>
+            </div>
+          </div>
+          <h3> Changes Field</h3>
+          <section class="col-lg-6 mt-4">
+              <form (ngSubmit)="_id ? updateTransaction() : addTransaction()">
+                  <fieldset class="form-group">
+                      <label for="userId" class="control-label">User ID *</label>
+                      <input required [(ngModel)]="userId" name="userId" class="form-control" />
+                  </fieldset>
+                  <fieldset class="form-group">
+                      <label for="category" class="control-label">Category *</label>
+                      <input required [(ngModel)]="category" name="category" class="form-control" />
+                  </fieldset>
+                  <fieldset class="form-group">
+                      <label for="amount" class="control-label">Amount *</label>
+                      <input required type="number" [(ngModel)]="amount" name="amount" class="form-control" />
+                  </fieldset>
+                  <fieldset class="form-group">
+                      <label for="description" class="control-label">Description</label>
+                      <textarea [(ngModel)]="description" name="description" class="form-control"></textarea>
+                  </fieldset>
+                  <input [(ngModel)]="_id" name="_id" type="hidden" />
+                  <div class="mt-3">
+                      <button type="submit" class="btn btn-success ">
+                          {{ _id ? 'Update Transaction' : 'Save Transaction' }}
+                      </button>
+                      <button type="button" class="btn btn-success m-2" (click)="clearForm()">Reset</button>
+                  </div>
+              </form>
+          </section>
+        </div>
+        
+    </div>
+
+    <div class="container-second" style="margin: auto;">
+       
+    </div>
+</main>
