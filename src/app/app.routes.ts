@@ -4,7 +4,7 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { CategoryComponent } from './components/category/category.component';
 
 export const routes: Routes = [
-    {path: "/", component: HomeComponent},
+    {path: "", component: HomeComponent},
     {path:"transaction", component: TransactionComponent},
     {path:"category", component: CategoryComponent}
 ];
